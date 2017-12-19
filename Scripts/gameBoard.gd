@@ -189,7 +189,7 @@ func _process(delta):
 			setup_game()
 	
 	if Input.is_action_pressed("ui_cancel"):
-		get_tree().change_scene("res://Scenes/mainMenu.xml")
+		get_tree().change_scene("res://mainMenu.xml")
 	
 	timer -= delta
 	
@@ -357,9 +357,11 @@ func _on_game_timer_timeout():
 func Result():
 	if playerSnake.length() > player2Snake.length():
 		resultMenu.show()
+		get_node("Label").add_color_override("WinnerText", Color(1, 0, 1, 255))
 		winner_text.set_text("Winner is Snake 1!")
 	elif player2Snake.length() > playerSnake.length():
 		resultMenu.show()
+		get_node("Label").add_color_override("WinnerText", Color(48, 19, 79, 255))
 		winner_text.set_text("Winner is Snake 2!")
 	elif playerSnake.length() == player2Snake.length():
 		resultMenu.show()
@@ -368,10 +370,10 @@ func Result():
 func _on_Replay_pressed():
 	resultMenu.hide()
 	get_tree().set_pause(false)
-	get_tree().change_scene("res://Scenes/Game.xml")
+	get_tree().change_scene("res://Game.xml")
 
 
 func _on_Quit_pressed():
 	resultMenu.hide()
 	get_tree().set_pause(false)
-	get_tree().change_scene("res://Scenes/mainMenu.xml")
+	get_tree().change_scene("res://mainMenu.xml")
