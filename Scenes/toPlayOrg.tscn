@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/toPlayOrg.gd" type="Script" id=1]
+[ext_resource path="res://Images/square.png" type="Texture" id=2]
+
+[node name="HowToPlay" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToMainMenu" type="Button" parent="."]
+margin_left = 259.0
+margin_top = 428.0
+margin_right = 342.0
+margin_bottom = 448.0
+focus_neighbour_bottom = NodePath("400")
+text = "Main Menu"
+
+[node name="Player2" type="Sprite" parent="."]
+modulate = Color( 1, 0.584314, 0.129412, 1 )
+position = Vector2( 535.456, 263.816 )
+texture = ExtResource( 2 )
+
+[node name="P2Controls" type="Label" parent="."]
+margin_left = 349.0
+margin_top = 242.0
+margin_right = 537.0
+margin_bottom = 358.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "Controls:
+Player 2:
+Up: Up Arrow
+Down: Down Arrow
+Left: Left Arrow
+Right: Right Arrow
+Return to main menu: Escape"
+
+[node name="Goal" type="Label" parent="."]
+margin_left = 8.0
+margin_right = 598.0
+margin_bottom = 65.0
+focus_neighbour_top = NodePath("100")
+focus_neighbour_right = NodePath("600")
+focus_neighbour_bottom = NodePath("200")
+mouse_filter = 1
+size_flags_vertical = 1
+text = "Snakes
+Goal: Eat the food to make the snake big.  Do not let the snake hit the wall or itself or each other. Try to have the biggest snake before times runs out!"
+autowrap = true
+
+[node name="Player1" type="Sprite" parent="."]
+modulate = Color( 1, 0, 1, 1 )
+position = Vector2( 130.556, 243.25 )
+texture = ExtResource( 2 )
+
+[node name="P1Controls" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 253.0
+margin_right = 191.0
+margin_bottom = 369.0
+mouse_filter = 1
+size_flags_vertical = 0
+text = "Controls:
+Player 1:
+Up:   W
+Down: s
+Left: A
+Right: D
+								Return to main menu: Escape"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 8.0
+margin_right = 600.0
+margin_bottom = 600.0
+focus_neighbour_right = NodePath("600")
+focus_neighbour_bottom = NodePath("60")
+mouse_filter = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_right = 592.0
+mouse_filter = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+visible = false
+margin_left = 296.0
+margin_top = 4.0
+margin_right = 296.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+margin_left = -817.0
+margin_top = 319.0
+margin_right = -225.0
+margin_bottom = 919.0
+mouse_filter = 0
+alignment = 1
+
+[node name="VBoxContainer 2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 294.0
+margin_right = 294.0
+margin_bottom = 600.0
+focus_neighbour_left = NodePath("0")
+focus_neighbour_top = NodePath("100")
+focus_neighbour_bottom = NodePath("100")
+mouse_filter = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 298.0
+margin_right = 298.0
+margin_bottom = 600.0
+mouse_filter = 0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 290.0
+margin_right = 83.0
+margin_bottom = 310.0
+focus_neighbour_left = NodePath("500")
+focus_neighbour_right = NodePath("300")
+[connection signal="pressed" from="ReturnToMainMenu" to="." method="_on_ReturnToMainMenu_pressed"]

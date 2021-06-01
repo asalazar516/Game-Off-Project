@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Images/title_card.png" type="Texture" id=2]
+
+[node name="MainMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 256.0
+margin_top = 278.0
+margin_right = 343.0
+margin_bottom = 322.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_right = 87.0
+margin_bottom = 44.0
+mouse_filter = 0
+
+[node name="PlayGame" type="Button" parent="CenterContainer/GridContainer"]
+margin_right = 87.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="HowTo" type="Button" parent="CenterContainer/GridContainer"]
+margin_top = 24.0
+margin_right = 87.0
+margin_bottom = 44.0
+text = "How to Play"
+
+[node name="Logo" type="Sprite" parent="CenterContainer"]
+position = Vector2( 42.791, -204.652 )
+scale = Vector2( 0.24597, 0.313311 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="CenterContainer/GridContainer/PlayGame" to="." method="_on_PlayGame_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HowTo" to="." method="_on_HowTo_pressed"]
