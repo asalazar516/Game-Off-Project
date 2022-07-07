@@ -1,171 +1,81 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/gameBoard.gd" type="Script" id=1]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-margin_left = 0.0
-margin_right = 0.0
-margin_top = 0.0
-margin_bottom = 0.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-draw_center = true
-
 [node name="Node2D" type="Node2D"]
 
-
 [node name="SnakeBoard" type="Node2D" parent="."]
-
 position = Vector2( 80, 80 )
 script = ExtResource( 1 )
-movement_speed = 0.3
-width = 14
-height = 14
-wall_color = Color( 1, 1, 0, 1 )
-player1_color = Color( 1, 0, 1, 1 )
 player2_color = Color( 1, 0.584314, 0.129412, 1 )
-food_coloring = Color( 0, 1, 1, 1 )
 
 [node name="game_timer" type="Timer" parent="."]
-
-process_mode = 1
 wait_time = 60.0
 one_shot = true
 autostart = true
 
 [node name="HUD" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
-mouse_filter = 0
 
 [node name="P1LengthText" type="Label" parent="HUD"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
 margin_left = 10.0
 margin_top = 15.0
 margin_right = 50.0
 margin_bottom = 55.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 mouse_filter = 1
+size_flags_vertical = 0
 
 [node name="TimeCounter" type="Label" parent="HUD"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
 margin_left = 240.0
 margin_top = 15.0
 margin_right = 280.0
 margin_bottom = 29.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 mouse_filter = 1
+size_flags_vertical = 0
 
 [node name="P2LengthText" type="Label" parent="HUD"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
 margin_left = 440.0
 margin_top = 15.0
 margin_right = 480.0
 margin_bottom = 29.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 mouse_filter = 1
+size_flags_vertical = 0
 
 [node name="ResultMenu" type="PopupMenu" parent="HUD"]
-
-visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
 margin_left = -3.0
 margin_top = -6.0
 margin_right = 597.0
 margin_bottom = 594.0
-custom_styles/panel = SubResource( 1 )
 custom_colors/font_color_accel = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-popup_exclusive = false
-items = [  ]
-mouse_filter = 0
+custom_styles/panel = SubResource( 1 )
 
 [node name="WinnerText" type="Label" parent="HUD/ResultMenu"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 0
 margin_left = 220.0
 margin_top = 250.0
 margin_right = 280.0
 margin_bottom = 264.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 mouse_filter = 1
+size_flags_vertical = 0
 
 [node name="ReplayButton" type="Button" parent="HUD/ResultMenu"]
-
 pause_mode = 2
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
 margin_left = 220.0
 margin_top = 293.0
 margin_right = 340.0
 margin_bottom = 323.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
 text = "Play Again"
-flat = false
-mouse_filter = 0
 
 [node name="QuitButton" type="Button" parent="HUD/ResultMenu"]
-
 pause_mode = 2
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags_horizontal = 1
-size_flags_vertical = 1
 margin_left = 220.0
 margin_top = 333.0
 margin_right = 340.0
 margin_bottom = 363.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
 text = "Return to Title"
-flat = false
-mouse_filter = 0
 
-[connection signal="pressed" from="HUD/ResultMenu/ReplayButton" to="SnakeBoard" method="_on_ReplayButton_pressed" binds=[  ]]
-
-[connection signal="pressed" from="HUD/ResultMenu/QuitButton" to="SnakeBoard" method="_on_QuitButton_pressed" binds=[  ]]
+[connection signal="pressed" from="HUD/ResultMenu/ReplayButton" to="SnakeBoard" method="_on_ReplayButton_pressed"]
+[connection signal="pressed" from="HUD/ResultMenu/QuitButton" to="SnakeBoard" method="_on_QuitButton_pressed"]

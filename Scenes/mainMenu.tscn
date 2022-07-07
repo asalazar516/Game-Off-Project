@@ -38,5 +38,6 @@ text = "How to Play"
 position = Vector2( 42.791, -204.652 )
 scale = Vector2( 0.24597, 0.313311 )
 texture = ExtResource( 2 )
+
 [connection signal="pressed" from="CenterContainer/GridContainer/PlayGame" to="." method="_on_PlayGame_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/HowTo" to="." method="_on_HowTo_pressed"]
